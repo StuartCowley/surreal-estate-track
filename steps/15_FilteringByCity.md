@@ -2,7 +2,7 @@
 1. Create a `<SideBar />` component that will render a vertical sidebar (or you can do a horizontal bar if you prefer).
 2. Add a `<Link />` for each city in your sidebar. The links should go to `?query={"city": "<your_city_name>"}` (where `<your_city_name>` matches the value in the select dropdown in your `<AddProperty />` component).
 3. Modify your `<Properties />` component so it renders `<SideBar />`.
-4. When you click on a `<Link />`, the URL in the address bar will update, and we want to trigger the `<Properties />` component to update (because it has been passed new props by React Router). We want to hook into this update in order to make a new request to the API. In order to achieve this, we need to use two extra hooks in the Property component: the `useLocation()` hook from `react-router-dom` and a second `useEffect()` hook.
+4. When you click on a `<Link />`, the URL in the address bar will update, and we want to trigger the `<Properties />` component to update (because it has been passed new props by React Router). We want to hook into this update in order to make a new request to the API. In order to achieve this, we need to use two extra hooks in the Properties component: the `useLocation()` hook from `react-router-dom` and a second `useEffect()` hook.
 5. The `useEffect()` hook should listen to any changes of the prop `search` that is given by `useLocation()` and make a new request to the API whenever that prop changes. You should form your request URL using the query string in the address bar. Set the `properties` state using the response.
 
 ## 1 - Create a `<SideBar />` component that will render a vertical sidebar (or you can do a horizontal bar if you prefer).
@@ -26,7 +26,7 @@ The problem is that we're using curly braces as strings. A way around this is ei
 
 Without the walkthrough.
 
-## 4 - When you click on a `<Link />`, the URL in the address bar will update, and we want to trigger the `<Properties />` component to update (because it has been passed new props by React Router). We want to hook into this update in order to make a new request to the API. In order to achieve this, we need to use two extra hooks in the `<Property />` component: the `useLocation()` hook from `react-router-dom` and a second `useEffect()` hook.
+## 4 - When you click on a `<Link />`, the URL in the address bar will update, and we want to trigger the `<Properties />` component to update (because it has been passed new props by React Router). We want to hook into this update in order to make a new request to the API. In order to achieve this, we need to use two extra hooks in the `<Properties />` component: the `useLocation()` hook from `react-router-dom` and a second `useEffect()` hook.
 
 ```jsx
 // Properties.js
@@ -70,5 +70,4 @@ useEffect(() => {
 ## Recommended Reading
 
 * [MDN: Browser History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API)
-* [React Router Location](https://reacttraining.com/react-router/web/api/location)
-* [The Hooks of React Router](https://css-tricks.com/the-hooks-of-react-router/)
+* [React Router Location](https://reactrouter.com/en/main/hooks/use-location)

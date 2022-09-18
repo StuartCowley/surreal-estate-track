@@ -14,23 +14,23 @@ Please read the React Router documentation linked in the steps below. It's writt
 
 ## To complete this challenge, you will need to:
 
-- Add `react-router-dom@5.3.3` to your project's dependencies (*Note the specific version number here.* There are some differences between the various versions of React Router. For this project we are using React Router v5).
+- Add `react-router-dom` to your project's dependencies.
 
-- Wrap your `<App />` component inside the [`<BrowserRouter />`](https://reacttraining.com/react-router/web/api/BrowserRouter) component.
+- Wrap your `<App />` component inside the [`<BrowserRouter />`](https://reactrouter.com/en/main/router-components/browser-router) component.
 
 - Create a `<Properties />` component. For now, it should be a presentational component that renders a `<div>` with the contents "Properties Page".
 
 - Create a `<AddProperty />` component. For now, it should be a presentational component that renders a `<div>` with the contents "Add Property Page".
 
-- Inside your `<App />` component, underneath the `<NavBar />`, render a [`<Switch/>`](https://reacttraining.com/react-router/web/api/Switch) component.
+- Inside your `<App />` component, underneath the `<NavBar />`, render a [`<Routes />`](https://reactrouter.com/en/main/components/routes) component.
 
-- Inside the `<Switch />` statement, add a new [`<Route />`](https://reacttraining.com/react-router/web/api/Route) component. It should have a `path` prop set to `/` (for when the user is on the homepage). It should render the `<Properties />` component - see [component](https://reacttraining.com/react-router/web/api/Route/component). You will need to use the [`exact`](https://reacttraining.com/react-router/web/api/Route/exact-bool) prop.
+- Inside the `<Routes />` statement, add a new [`<Route />`](https://reactrouter.com/en/main/route/route) component. It should have a `path` prop set to `/` (for when the user is on the homepage). It should render the `<Properties />` component - see [element](https://reactrouter.com/en/main/route/route#element).
 
-- Add another `<Route />` component for when the user visits the path `/add-property`. This time it should render the `<AddProperty />` component. Again, you will need to use the `exact` prop.
+- Add another `<Route />` component for when the user visits the path `add-property`. This time it should render the `<AddProperty />` component.
 
-- Inside the `<NavBar />` component, import in the [`<Link />`](https://reacttraining.com/react-router/web/api/Link) component.
+- Inside the `<NavBar />` component, import in the [`<Link />`](https://reactrouter.com/en/main/components/link) component.
 
-- Swap your `a` elements for `<Link />` elements. Add a `to` prop to the `<Link />` element wrapping "View Properties" and set it's value to `/`. Set your other `<Link />`'s `to` prop to `/add-property`.
+- Swap your `a` elements for `<Link />` elements. Add a `to` prop to the `<Link />` element wrapping "View Properties" and set it's value to `/`. Set your other `<Link />`'s `to` prop to `add-property`.
 
 - Everything should still look okay in your browser now. You might need to look at changing the text [color](https://www.w3schools.com/cssref/pr_text_color.asp) and [text-decoration](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration) in the `.navbar-links-item` CSS class to get the appearance you want. 
 
@@ -38,10 +38,8 @@ Please read the React Router documentation linked in the steps below. It's writt
 
 ## Recommended Reading
 
-* [`create-react-app` adding a Router documentation](https://reacttraining.com/react-router/web/example/basic)
+* [React Router Documentation](https://reactrouter.com/en/v6.3.0/api)
 
-* [React Router Documentation](https://reacttraining.com/react-router/web/guides/philosophy)
+* [React Router Installation](https://reactrouter.com/en/v6.3.0/getting-started/installation)
 
-* [React Router Examples](https://reacttraining.com/react-router/web/example/basic)
-
-* [Upgrading from version 5](https://reactrouter.com/docs/en/v6/upgrading/v5)
+* [React Router Overview](https://reactrouter.com/en/main/start/overview)
