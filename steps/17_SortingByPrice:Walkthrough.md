@@ -37,7 +37,7 @@ import qs from 'qs';
 ...
 
 const buildQueryString = (operation, valueObj) => {
-  const {  search  } = useLocation();
+  const { search } = useLocation();
 
   const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
 }
