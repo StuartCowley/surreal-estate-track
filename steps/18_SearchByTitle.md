@@ -29,7 +29,7 @@ What you need to do is to create a search form that - when submitted - programat
 ## To complete this challenge, you will need to:
 * Create a search form inside your `<SideBar />` component which should consist of a text `<input>` and a submit `<button>`. The text `<input>` should be tied to a field in your state (`query` or `search` would be good field names) - refer back to the [AddProperty step](https://platform.manchestercodes.com/module/frontend/further-react/?pageId=8TqoTDrAlvkzxelfwDuP) if you are unsure about this. On form submission, a `handleSearch()` function should be called on your component.
 * Inside the `handleSearch()` function you should call your `buildQueryString()` function, passing in `'query'` as your first argument and `{ title: { $regex: <search query here> } }` as your second argument. Note that `<search query here>` will be replaced with the value of your text `<input>`, which should come from the state that you set earlier. Assign the result of invoking `buildQueryString()` to a variable.
-* Use the `useHistory()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
+* Use the `useNavigate()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
 * Give this a test run in your browser to check everything is working A-OK. You should notice that it isn't currently possible to search **and** filter by city.
 * Modify your `buildQueryString()` function so it supports more than one `query` key. Hint: you can achieve this by spreading one level deeper.
 
