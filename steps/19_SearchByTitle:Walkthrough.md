@@ -2,7 +2,7 @@
 
 1. Create a search form inside your `<SideBar />` component which should consist of a text `<input>` and a submit `<button>`. The text `<input>` should be tied to a field in your state (`query` or `search` would be good field names) - refer back to the [AddProperty step](https://platform.manchestercodes.com/module/frontend/further-react/?pageId=8TqoTDrAlvkzxelfwDuP) if you are unsure about this. On form submission, a `handleSearch()` function should be called on your component.
 2. Inside the `handleSearch()` function you should call your `buildQueryString()` function, passing in `'query'` as your first argument and `{ title: { $regex: <search query here> } }` as your second argument. Note that `<search query here>` will be replaced with the value of your text `<input>`, which should come from the state that you set earlier. Assign the result of invoking `buildQueryString()` to a variable.
-3. Use the `useHistory()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
+3. Use the `useNavigate()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
 4. Give this a test run in your browser to check everything is working A-OK. You should notice that it isn't currently possible to search **and** filter by city.
 5. Modify your `buildQueryString()` function so it supports more than one `query` key. Hint: you can achieve this by spreading one level deeper.
 
@@ -43,25 +43,25 @@ const handleSearch = event => {
 }
 ```
 
-## 3 - Use the `useHistory()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
+## 3 - Use the `useNavigate()` hook from `react-router-dom` to programatically change the URL to your new query string returned from the `buildQueryString()` function.
 
 ```js
-import { Link, useLocation, useHistory } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SideBar = () => {
   ...
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleSearch = event => {
     ...
 
-    history.push(newQueryString);
+    navigate(newQueryString);
   }
   ...
 }
 ```
 
-We mentioned previously that React Router routes from one page to another without page loads by adding a new item to the browser's history using HTML5's history API. The `<Link/>` component takes care of this for us when we want to link from one page to another, but in this event we want to programatically change the URL based on a form submission. Fortunately, React Router gives our component the `history` prop which contains a `push` method, allowing us to _push_ a new item into the browser's history. By pushing the new query string into the history, our address bar will update and our component will update, making a new request to the API based on the new query string.
+We mentioned previously that React Router routes from one page to another without page loads by adding a new item to the browser's history using HTML5's history API. The `<Link/>` component takes care of this for us when we want to link from one page to another, but in this event we want to programatically change the URL based on a form submission. Fortunately, React Router gives our component the `useNavigate` hook which allows us to push a new item into the browser's history. By pushing the new query string into the history, our address bar will update and our component will update, making a new request to the API based on the new query string.
 
 ## 4 - Give this a test run in your browser to check everything is working A-OK. You should notice that it isn't currently possible to search **and** filter by city.
 
