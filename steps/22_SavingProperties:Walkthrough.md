@@ -12,14 +12,10 @@
 ## 1 - Pass the `userID` state in the `<App />` component to the `<Properties />` component via the `<Route />` that renders this component.
 
 ```jsx
-<Route
-  exact
-  path="/"
-  render={props => <Properties {...props} userID={userID} />}
-/>
+<Route path="/" element={<Properties userID={userID} />} />
 ```
 
-When we want to pass our own props to a component that's rendered by a `<Route />` component, then we use the `render` prop instead of the `component` prop. The `render` prop takes a function which gets passed the React Router props as an argument, and returns a rendered component. Here we render the `<Properties />` component, pass in the default React Router props (i.e. `history`, `location` etc.) and a `userID` prop set to our `userID` state.
+Since elements rendered by a `<Route />` component are defined in the same way we always return components, props can be passed in the usual way.
 
 ## 2 - In the `<Properties />` component, pass the `userID` prop down to the `<PropertyCard />` component as a prop.
 
@@ -29,16 +25,14 @@ Without the walkthrough.
 
 ```jsx
 {userID && (
-  <a
-    href="#"
+  <button
+    type="button"
     className="save"
   >
     <i className="fas fa-star" />Save
-  </a>
+  </button>
 )}
 ```
-
-Note that if you want a link to do nothing then it's typical to set the href to `#`.
 
 ## 4 - In your `<Properties />` component, create a function on the class called `handleSaveProperty()`. It should have a parameter of `propertyId`.
 
@@ -98,8 +92,8 @@ const PropertyCard = ({
 And then call the `onSaveProperty()` using the `onClick` event handler on your Save anchor tag:
 
 ```jsx
-<a
-  href="#"
+<button
+  type="button"
   onClick={() => onSaveProperty(_id)}
   className="save"
 >
